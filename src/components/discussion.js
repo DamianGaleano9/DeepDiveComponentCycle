@@ -12,15 +12,16 @@ export default class Discussion extends Component {
 
 
     componentDidMount() {
-        setInterval(() => {
+       this.liveTime =  setInterval(() => {
+            console.log("New chat Message")
             this.setState({ currentTime: String(new Date()) })
         }, 1000)
     }
 
-
-    componentDidUpdate() {
-        console.log("componentDidUpdate");
+    componentWillUnmount() {
+        clearInterval(this.liveTime)
     }
+
     render() {
         const { pageTitle, currentTime } = this.state;
 
