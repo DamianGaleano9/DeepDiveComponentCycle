@@ -7,10 +7,22 @@ export default class Discussion extends Component {
         this.state = {
             pageTitle: "Discussion",
             currentTime: String(new Date())
-        }
+        };
+    }
+
+
+    componentDidMount() {
+        setInterval(() => {
+            this.setState({ currentTime: String(new Date()) })
+        }, 1000)
+    }
+
+
+    componentDidUpdate() {
+        console.log("componentDidUpdate");
     }
     render() {
-        const { pageTitle, currentTime} = this.state;
+        const { pageTitle, currentTime } = this.state;
 
         return (
             <div>
